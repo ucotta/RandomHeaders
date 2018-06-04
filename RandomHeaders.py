@@ -1,15 +1,11 @@
 import random
-import csv
 
-UserAgentCSV = open('UserAgent.csv', 'r')
-UserAgentList = csv.reader(UserAgentCSV)
-UserAgentList = [row for row in UserAgentList]
-UserAgentList = [l[0] for l in UserAgentList]
-random.shuffle(UserAgentList)
+user_agent_list = open("UserAgent.csv", "r").read().split("\n")
+random.shuffle(user_agent_list)
 
 
 def LoadHeader():
-    return {'User-Agent': random.choice(UserAgentList)}
+    return {'User-Agent': random.choice(user_agent_list)}
 
 
 if __name__ == "__main__":
